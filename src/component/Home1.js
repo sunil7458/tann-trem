@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Product from "./Product";
 import axios from "axios";
 import Nav from "./Nav";
@@ -9,7 +7,7 @@ import Product1 from "./Product1";
 import Footer from "./Footer";
 
 const Home1 = () => {
-  const [mobile, setmobile] = useState(false);
+  
   const [filterout, setfilterout] = useState();
 
   useEffect(() => {
