@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
-// import img1 from "../Asset/tann.png"
-
 import img2 from "../Asset/img.png";
 import img3 from "../Asset/j.png";
 import img4 from "../Asset/v.png";
 import img5 from "../Asset/w.png.webp";
 import img6 from "../Asset/im.webp";
 import axios from "axios";
-
-// import Home1 from "./Home1";
+import im7 from "../component/jkjk.png";
+import img8 from "../component/tn.png";
+import img9 from "../component/tnn.png";
+import img10 from "../component/t.png";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 const Homepage = () => {
-  
- 
   const [data, setdata] = useState();
-
-  
-  // console.log(filterout , "hgh")
 
   useEffect(() => {
     const fetch = async () => {
@@ -40,16 +36,12 @@ const Homepage = () => {
   //   fetch();
   // }, []);
 
-
-  
-
   return (
     <div className="main ">
-     <Nav/>
+      <Nav />
       <h1 className="flex justify-center bg-blue-500 capitalize md:text-3xl text-sm tracking-[5px] md:p-3 p-1 ">
         use code Myfirst on checkout 10%
       </h1>
-      
 
       <section className="w-full">
         {/* <ful screen */}
@@ -78,7 +70,7 @@ const Homepage = () => {
                     <div className="">
                       <img
                         src={datas.plpimaage}
-                        alt = "kj"
+                        alt="kj"
                         className="h-80  object-cover"
                       />
                       <span>{datas.name}</span>
@@ -89,8 +81,8 @@ const Homepage = () => {
             </div>
           </div>
 
-          <img src={img4} className="mt-20"  alt="d"/>
-          <img src={img5} className="mt-20"  alt="kd" />
+          <img src={img4} className="mt-20" alt="d" />
+          <img src={img5} className="mt-20" alt="kd" />
 
           <span className=" flex justify-center text-3xl text-white  mt-16 tracker-[4px]">
             Best Seller{" "}
@@ -102,7 +94,11 @@ const Homepage = () => {
               return (
                 <div className=" ">
                   <div className="">
-                    <img src={datas.plpimaage} className="h-80  object-cover" alt="kjh" />
+                    <img
+                      src={datas.plpimaage}
+                      className="h-80  object-cover"
+                      alt="kjh"
+                    />
                     <span>{datas.name}</span>
                   </div>
                 </div>
@@ -114,7 +110,7 @@ const Homepage = () => {
             everyday
           </span>
 
-          <img src={img6} alt="kjbh" className=" mt-16 "  />
+          <img src={img6} alt="kjbh" className=" mt-16 " />
         </div>
         {/* <ful screen */}
 
@@ -354,17 +350,64 @@ const Homepage = () => {
               <span>Bags</span>
             </div>
           </ul>
-          <img src={img2} alt =  "kj" />
+          <img src={img2} alt="kj" />
+          <Link to="/bags">
+            <img src={im7} alt="kjhg" className=" mt-10" />
+          </Link>
+          <div className="   text-white  flex justify-center items-center  m-16">
+            <div className="flex flex-col capitalize  space-y-12  text-center">
+              <span className="text-2xl capitalize  tracking-[5px]">
+                host Best party
+              </span>
+              <span className="capitalize  text-md tracking-[1px]">
+                {" "}
+                a good host good is haif job done
+              </span>
+            </div>
+          </div>
+          <Link to="/g">
+            <img src={img8} className="mt-10" alt="kk" />
+          </Link>
+          <Link to="/jewe">
+            <img src={img9} className="mt-7" alt="kj" />
+          </Link>
+          <Link>
+            <img src={img10} className="" alt="kjh" />
+          </Link>
         </div>
 
         {/* mobile */}
 
         {/* <tablet */}
 
+        <div className=" hidden md:block lg:hidden">
+          <div className="   text-white  flex justify-center items-center  m-16">
+            <div className="flex flex-col capitalize  space-y-12  text-center">
+              <span className="text-4xl capitalize  tracking-[5px]">
+                host Best party
+              </span>
+              <span className="capitalize  text-xl tracking-[2px]">
+                {" "}
+                a good host good is haif job done
+              </span>
+            </div>
+          </div>
+          <div className="flex justify-center mt-9">
+            <img src={img8} className="w-[50%]" />
+          </div>
+
+          <div className="flex justify-center mt-10">
+            <img src={img6} className="w-[50%]" />
+          </div>
+          <div className="flex justify-center mt-11">
+            <img src={img9} className="w-[50%]" />
+          </div>
+        </div>
+
         {/* <tablet */}
       </section>
 
-     <Footer/>
+      <Footer />
 
       {/* <div className='banner '>
                 <h1 className='flex justify-center bg-blue-500 capitalize md:text-3xl text-sm tracking-[5px] md:p-3 p-1 '>use code Myfirst  on checkout 10%</h1>

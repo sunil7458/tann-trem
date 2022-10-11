@@ -9,7 +9,7 @@ const Bags = () => {
   const [mapData, setMapData] = useState([]);
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetch = async() => {
       const bagdata = await axios.get("https://fakestoreapi.com/products");
       setdata(bagdata?.data);
       setMapData(bagdata?.data);

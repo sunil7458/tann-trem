@@ -1,29 +1,24 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-
-import axios from "axios";
 import Nav from "./Nav";
-import Product1 from "./Product1";
 import Footer from "./Footer";
-
-const Home1 = () => {
-  const [filterout, setfilterout] = useState();
+import Product3 from "./Product3";
+import axios from "axios";
+const Jewe = () => {
+  const [n, setn] = useState();
 
   useEffect(() => {
     const fetch = async () => {
-      const datas = await axios.get(
-        "https://api.tjori.com/api/v7filters/na/women-all-products/?f_page=1&format=json"
+      const data = await axios.get(
+        "https://fakestoreapi.com/products/category/jewelery"
       );
-      console.log(datas?.data?.data?.products);
-      setfilterout(datas?.data?.data?.products);
+      setn(data?.data);
+      console.log(data?.data);
     };
     fetch();
   }, []);
-
   return (
     <div>
       <Nav />
-
       <div className="banner ">
         <h1 className="flex justify-center bg-blue-500 capitalize md:text-3xl text-sm tracking-[5px] md:p-3 p-1 ">
           use code Myfirst on checkout 10%
@@ -287,13 +282,13 @@ const Home1 = () => {
               <span>Products</span>
             </div>
             <div className="product space-y-9  grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full  items-baseline lg:gap-0 gap-4 ">
-              {filterout?.map((j, index) => {
+              {n?.map((j, index) => {
                 return (
-                  <Product1
-                    plpimaage={j.plpimaage}
+                  <Product3
+                    plpimaage={j.image}
                     price={j.price}
-                    price_usd={j.price_usd}
-                    name={j.name}
+                    // price_usd={j.price_usd}
+                    title={j.title}
                   />
                 );
               })}
@@ -306,4 +301,4 @@ const Home1 = () => {
   );
 };
 
-export default Home1;
+export default Jewe;

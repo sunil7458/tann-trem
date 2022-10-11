@@ -3,9 +3,19 @@ import { faTrash, faPlus, faSubtract } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Nav from "./Nav";
 import { UsestateValue } from "./Context";
+import { getTotalbasket } from "./Reducer";
 
 const Cart = () => {
-  const [{ basket }] = UsestateValue();
+  const [{ basket } , dispatch] = UsestateValue();
+
+  const remov = (id) => {
+    dispatch({
+      type: "REMOVE_TO_CART",
+      payLoad: {
+        id: id,
+      },
+    });
+  };
   return (
     <div>
       <Nav />
@@ -18,8 +28,10 @@ const Cart = () => {
 
 </div> */}
 
+
+
         <div className="orderederd_items text-white flex justify-between items-baseline  md:w-[70%] w-full gap-4 flex-col lg:flex-row p-4 lg:p-0">
-          <div className="md:w-full w-[70%] ">
+          <div className="w-full lg:w-[70%] ">
             <span className="flex  justify-center">items are added</span>
             {basket?.map((k, ind) => {
               console.log(basket);
@@ -46,7 +58,7 @@ const Cart = () => {
                       </div>
 
                       <div className="icons flex flex-col  space-y-2 p-2  items-center ">
-                        <FontAwesomeIcon icon={faTrash} />
+                        <FontAwesomeIcon icon={faTrash}  onClick= {remov} />
 
                         <FontAwesomeIcon icon={faPlus} />
                         <span>2</span>
@@ -74,7 +86,7 @@ const Cart = () => {
               <div className="space-y-8 mt-5">
                 <div className="flex justify-between">
                   <span>Subtotals</span>
-                  <span>14,000</span>
+                  <span>{getTotalbasket(basket)}</span>
                 </div>
 
                 <div className="flex justify-between">
@@ -99,7 +111,7 @@ const Cart = () => {
 
                 <div className="flex justify-between">
                   <span className="font-[500 ] text-2xl">Total Amount</span>
-                  <span>14,000</span>
+                  <span>{getTotalbasket(basket)}</span>
                 </div>
               </div>
             </div>

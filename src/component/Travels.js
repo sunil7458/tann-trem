@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-
 import axios from "axios";
-import Nav from "./Nav";
-import Product1 from "./Product1";
+import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
+import Nav from "./Nav";
+import Product2 from "./Product2";
 
-const Home1 = () => {
-  const [filterout, setfilterout] = useState();
+const Travels = () => {
+  const [m, setm] = useState();
 
   useEffect(() => {
-    const fetch = async () => {
-      const datas = await axios.get(
-        "https://api.tjori.com/api/v7filters/na/women-all-products/?f_page=1&format=json"
+    const d = async () => {
+      const b = await axios.get(
+        "https://jsonplaceholder.typicode.com/photos"
       );
-      console.log(datas?.data?.data?.products);
-      setfilterout(datas?.data?.data?.products);
+      setm(b?.data);
+      console.log(b?.data, "jhv");
     };
-    fetch();
+    d();
   }, []);
-
   return (
     <div>
       <Nav />
@@ -287,12 +284,26 @@ const Home1 = () => {
               <span>Products</span>
             </div>
             <div className="product space-y-9  grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full  items-baseline lg:gap-0 gap-4 ">
-              {filterout?.map((j, index) => {
+              {/* {m?.map((j, index) => {
+            //   return (
+            //     <Product2
+            //       image=  {j.thumbnailUrl}
+            //       title = {j.title}
+            //       album  = {j.albumId}
+
+            //     />
+            //   );
+
+        
+            })} */}
+
+              {m?.map((j, index) => {
+                console.log(j , "kj")
                 return (
-                  <Product1
-                    plpimaage={j.plpimaage}
-                    price={j.price}
-                    price_usd={j.price_usd}
+                  <Product2
+                    plpimaage={j.thumbnailUrl}
+                    price={j.title}
+                    price_usd={j.id}
                     name={j.name}
                   />
                 );
@@ -306,4 +317,4 @@ const Home1 = () => {
   );
 };
 
-export default Home1;
+export default Travels;
